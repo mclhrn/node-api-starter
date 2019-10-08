@@ -3,6 +3,17 @@ import { Request, Response } from 'express';
 
 export class Controller {
 
+
+
+
+
+  // Use this to call the service via HTTP or via Mongo
+  // Use Mongoose DAL here to update models
+
+
+
+
+
   all(req: Request, res: Response): void {
     UserService.all().then(r => res.json(r));
   }
@@ -23,4 +34,5 @@ export class Controller {
     );
   }
 }
+
 export default new Controller();

@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import http from 'http';
 import os from 'os';
 import cookieParser from 'cookie-parser';
-
+import connect from './connect'
 import installValidator from './openapi';
 
 import l from './logger';
@@ -19,6 +19,9 @@ export default class ExpressServer {
     app.use(bodyParser.urlencoded({ extended: true, limit: process.env.REQUEST_LIMIT || '100kb' }));
     app.use(cookieParser(process.env.SESSION_SECRET));
     app.use(express.static(`${root}/public`));
+
+    const db = process.env.MONGO_CONN_STRING;
+    connect({ db });
   }
 
   router(routes: (app: express.Application) => void): ExpressServer {

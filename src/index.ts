@@ -6,3 +6,9 @@ const port = parseInt(process.env.PORT);
 export default new Server()
   .router(routes)
   .listen(port);
+
+
+// TODO - Add prometheus monitoring
+// TODO - Add mongo tests
+// TODO - Add openshift configs (envs)
+// TODO - Add pipeline scripts
