@@ -23,7 +23,7 @@ export default function http() {
     });
   };
 
-  const sendGetBY = (path: string, id: String) => {
+  const sendGetBY = (path: string, id: string) => {
     L.info(`Sending HTTP GET_BY to: ${path} for id: ${id}`);
     const opts = {
       url: `${process.env.BASE_URL}${path}:${id}`,

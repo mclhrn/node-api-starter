@@ -5,5 +5,5 @@ const outDir = config.compilerOptions.outDir;
 s.rm('-rf', outDir);
 s.mkdir(outDir);
 s.cp('.env', `${outDir}/.env`);
-s.mkdir('-p', `${outDir}/common/`);
-s.cp('src/common/api.yml', `${outDir}/common/api.yml`);
+s.mkdir('-p', `${outDir}/lib/`);
+s.cp('src/lib/api.yml', `${outDir}/lib/api.yml`);

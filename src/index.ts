@@ -12,4 +12,3 @@ export default new Server()
 // TODO - Add mongo tests
 // TODO - Add openshift configs (envs)
 // TODO - Add pipeline scripts
-// TODO - Add sonarqube
