@@ -1,5 +1,5 @@
-import './common/env';
-import Server from './common/server';
+import './lib/env';
+import Server from './lib/server';
 import routes from './routes';
 
 const port = parseInt(process.env.PORT);

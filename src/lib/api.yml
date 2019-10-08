@@ -11,6 +11,48 @@ tags:
 - name: Specification
   description: The swagger API specification
 paths:
+  /users:
+    get:
+      tags:
+      - Users
+      description: Fetch all users
+      responses:
+        200:
+          description: Returns all users
+          content: {}
+    post:
+      tags:
+      - Users
+      description: Create a new user
+      requestBody:
+        description: a user
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExampleBody'
+        required: true
+      responses:
+        200:
+          description: Returns all examples
+          content: {}
+  /users/{id}:
+    get:
+      tags:
+      - User
+      parameters:
+      - name: id
+        in: path
+        description: The id of the user to retrieve
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Return the user with the specified id
+          content: {}
+        404:
+          description: User not found
+          content: {}
   /examples:
     get:
       tags:
@@ -71,4 +113,11 @@ components:
       properties:
         name:
           type: string
-          example: no_stress
+    UserBody:
+      title: user
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string

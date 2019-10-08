@@ -1,6 +1,6 @@
 import path from 'path';
 import middleware from 'swagger-express-middleware';
-import errorHandler from '../api/middlewares/error.handler';
+import errorHandler from '../middlewares/error.handler';
 // eslint-disable-next-line no-unused-vars
 import { Application } from 'express';
 
@@ -33,9 +33,8 @@ export default function(app: Application, routes: (app: Application) => void) {
       middleware.CORS(),
       middleware.validateRequest());
 
-    routes(app);
-
-    // eslint-disable-next-line no-unused-vars, no-shadow
     app.use(errorHandler);
+
+    routes(app);
   });
 }
