@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import http from 'http';
 import os from 'os';
 import cookieParser from 'cookie-parser';
-import connect from './connect'
+import connect from './connect';
 import installValidator from './openapi';
 
 import l from './logger';
