@@ -1,5 +1,17 @@
-.vscode
-.idea
 dist
 node_modules
+
+# ---- npm logs
+npm-debug.log*
+npm.tar.gz
+
+# ---- IDE
+.vscode
+.idea
+
+# ---- Dotenv
 .env
+
+# ---- SonarQube
+.sonar/
+.scannerwork/

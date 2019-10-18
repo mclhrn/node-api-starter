@@ -1,6 +1,6 @@
 # node-temp
 
-My cool TypeScript app
+Starter Template for nodejs API
 
 ## Quick Start
 
@@ -46,7 +46,7 @@ npm run dev:debug
 Compiles the application and starts it in production production mode.
 
 ```shell
-npm run compile
+npm run build
 npm start
 ```
 
@@ -82,10 +82,21 @@ npm run dev:debug
 
 #### Debug Tests
 
-```
+```shell
 npm run test:debug
 ```
 
 #### Debug with VSCode
 
 Add these [contents](https://github.com/cdimascio/generator-express-no-stress/blob/next/assets/.vscode/launch.json) to your `.vscode/launch.json` file
+
+## Code Quality
+
+### SonarQube
+
+Start a SonarQube Container and run code coverage
+
+```shell
+npm run sonar:start
+npm run sonar:inspect
+```

@@ -8,7 +8,14 @@ export default new Server()
   .listen(port);
 
 
-// TODO - Add prometheus monitoring
+
+
+
+
+
+
+
+
 // TODO - Add mongo tests
-// TODO - Add openshift configs (envs)
+// TODO - Add openshift configs
 // TODO - Add pipeline scripts

@@ -27,12 +27,13 @@ export function requestWatch(req: Request, res: Response, next) {
   };
 
   const timer = responseTime.startTimer();
+
   requestCount.inc(labels);
 
   res.on("finish", () => {
-    // if (req.swagger) {
-    //   labels.path = req.swagger.apiPath;
-    // }
+    if (req.swagger) {
+      labels.path = req.swagger['basePath'];
+    }
     responseStatCount.inc({
       method: labels.method,
       path: labels.path,
