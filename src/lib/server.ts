@@ -6,8 +6,7 @@ import os from 'os';
 import cookieParser from 'cookie-parser';
 import connect from './connect';
 import installValidator from './openapi';
-
-import l from './logger';
+import { l } from './logger';
 
 const app = express();
 
@@ -15,6 +14,7 @@ export default class ExpressServer {
   constructor() {
     const root = path.normalize(path.join(__dirname, '/../..'));
     app.set('appPath', root + 'client');
+    app.use(require('express-pino-logger')({ logger: l }));
     app.use(bodyParser.json({ limit: process.env.REQUEST_LIMIT || '100kb' }));
     app.use(bodyParser.urlencoded({ extended: true, limit: process.env.REQUEST_LIMIT || '100kb' }));
     app.use(cookieParser(process.env.SESSION_SECRET));

@@ -1,10 +1,10 @@
 import Promise from 'bluebird';
-import L from './logger';
+import { l } from './logger';
 import request from 'request';
 
 export default function http() {
   const sendGET = (path: string): any => {
-    L.info(`Sending HTTP GET to: ${path}`);
+    l.info(`Sending HTTP GET to: ${path}`);
     const opts = {
       url: `${process.env.BASE_URL}${path}`,
       method: 'GET',
@@ -14,17 +14,17 @@ export default function http() {
 
     request(opts, (err: string, data: any) => {
       if (err) {
-        L.error(err);
+        l.error(err);
         return Promise.reject(err);
       }
 
-      L.info(`HTTP GET response successful to: ${path}`);
+      l.info(`HTTP GET response successful to: ${path}`);
       return Promise.resolve(data.body);
     });
   };
 
   const sendGetBY = (path: string, id: string) => {
-    L.info(`Sending HTTP GET_BY to: ${path} for id: ${id}`);
+    l.info(`Sending HTTP GET_BY to: ${path} for id: ${id}`);
     const opts = {
       url: `${process.env.BASE_URL}${path}:${id}`,
       method: 'GET',
@@ -34,17 +34,17 @@ export default function http() {
 
     request(opts, (err: string, data: any) => {
       if (err) {
-        L.error(err);
+        l.error(err);
         return Promise.reject(err);
       }
 
-      L.info(`HTTP GET_BY response successful to: ${path}`);
+      l.info(`HTTP GET_BY response successful to: ${path}`);
       return Promise.resolve(data.body);
     });
   };
 
   const sendPOST = (path: string, data: any) => {
-    L.info(`Sending HTTP POST to: ${path}`);
+    l.info(`Sending HTTP POST to: ${path}`);
     const opts = {
       url: `${process.env.BASE_URL}${path}`,
       method: 'POST',
@@ -55,17 +55,17 @@ export default function http() {
 
     request(opts, (err: string, data: any) => {
       if (err) {
-        L.error(err);
+        l.error(err);
         return Promise.reject(err);
       }
 
-      L.info(`HTTP POST response successful to: ${path}`);
+      l.info(`HTTP POST response successful to: ${path}`);
       return Promise.resolve(data.body);
     });
   };
 
   const sendPUT = (path: string, body: any) => {
-    L.info(`Sending HTTP PUT to: ${path}`);
+    l.info(`Sending HTTP PUT to: ${path}`);
     const opts = {
       url: `${process.env.BASE_URL}${path}`,
       method: 'PUT',
@@ -76,11 +76,11 @@ export default function http() {
 
     request(opts, (err: string, data: any) => {
       if (err) {
-        L.error(err);
+        l.error(err);
         return Promise.reject(err);
       }
 
-      L.info(`HTTP PUT response successful to: ${path}`);
+      l.info(`HTTP PUT response successful to: ${path}`);
       return Promise.resolve(data.body);
     });
   };

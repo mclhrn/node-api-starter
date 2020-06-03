@@ -4,7 +4,7 @@ type TInput = {
   db: string;
 }
 
-export default ({db}: TInput) => {
+export default ({ db }: TInput) => {
   const connect = () => {
     mongoose.connect(db, {
       useNewUrlParser: true,
