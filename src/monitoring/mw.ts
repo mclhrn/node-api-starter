@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import { Request, Response } from 'express';
-import '../middlewares/swagger';
 import promClient = require('prom-client');
 
 const responseTime = new promClient.Gauge({
@@ -32,9 +31,6 @@ export function requestWatch(req: Request, res: Response, next) {
   requestCount.inc(labels);
 
   res.on('finish', () => {
-    if (req.swagger) {
-      labels.path = req.swagger.basePath;
-    }
     responseStatCount.inc({
       method: labels.method,
       path: labels.path,

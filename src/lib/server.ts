@@ -5,7 +5,6 @@ import http from 'http';
 import os from 'os';
 import cookieParser from 'cookie-parser';
 import connect from './connect';
-import installValidator from './openapi';
 import { l } from './logger';
 
 const app = express();
@@ -24,10 +23,9 @@ export default class ExpressServer {
     connect({ db });
   }
 
-  router(routes: (app: express.Application) => void): ExpressServer {
-    installValidator(app, routes);
-    return this;
-  }
+  // router(routes: (app: express.Application) => void): ExpressServer {
+  //   return this;
+  // }
 
   listen(p: string | number = process.env.PORT): express.Application {
     const welcome = port => () => l.info(`up and running in ${process.env.NODE_ENV || 'development'} @: ${os.hostname()} on port: ${port}}`);
