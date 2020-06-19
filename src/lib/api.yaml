@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
-  title: Node Starter
-  description: My cool TypeScript app
+  title: Node API Starter
+  description: Nodejs API starter app
   version: 1.0.0
 servers:
-  - url: http://localhost:9000/api/v1
+  - url: /api/v1
     description: Local Server
 tags:
   - name: Users
@@ -27,14 +27,11 @@ paths:
       description: Create a new user
       requestBody:
         description: a user
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ExampleBody'
+        content: {}
         required: true
       responses:
         200:
-          description: Returns all examples
+          description: Creates a new user
           content: {}
   /users/{id}:
     get:
@@ -54,7 +51,7 @@ paths:
         404:
           description: User not found
           content: {}
-  /spec:
+  /api-docs:
     get:
       tags:
         - Specification
@@ -65,18 +62,11 @@ paths:
 components:
   schemas:
     User:
-      title: example
       required:
         - name
       type: object
       properties:
-        name:
-          type: string
-    UserBody:
-      title: user
-      required:
-        - name
-      type: object
-      properties:
+        id:
+          type: integer
         name:
           type: string

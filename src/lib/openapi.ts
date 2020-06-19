@@ -1,21 +1,10 @@
-import path from 'path';
-import express from 'express';
-import { OpenApiValidator } from 'express-openapi-validator';
-import errorHandler from '../middlewares/error.handler';
+import path from 'path'
+import errorHandler from '../middlewares/error.handler'
 import { serve, setup } from 'swagger-ui-express'
+import * as YAML from 'yamljs'
 
-export default function openapi(app, routes) {
-  const apiSpec = path.join(__dirname, 'api.yml');
-  app.use(`${process.env.OPENAPI_PATH_VERSION}/api-docs`, express.static(apiSpec));
-  new OpenApiValidator({ apiSpec }).install(app);
-
-
-  console.log('**********')
-  console.log(apiSpec)
-
-  // app.use(`${process.env.OPENAPI_PATH_VERSION}/api-docs`, serve, setup(apiSpec));
-
-  routes(app);
-
-  app.use(errorHandler);
+export default function openapi(app) {
+  const swaggerDocument = YAML.load(path.join(__dirname, 'api.yaml'))
+  app.use(`${process.env.OPENAPI_PATH_VERSION}/api-docs`, serve, setup(swaggerDocument))
+  app.use(errorHandler)
 }

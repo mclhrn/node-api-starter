@@ -1,7 +1,7 @@
-import 'mocha';
-import { expect } from 'chai';
-import request from 'supertest';
-import Server from '../src';
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+import request from 'supertest'
+import Server from '../src'
 
 describe('Users', () => {
   it('should get all Users', () =>
@@ -11,8 +11,8 @@ describe('Users', () => {
       .then(r => {
         expect(r.body)
           .to.be.an('array')
-          .of.length(2);
-      }));
+          .of.length(2)
+      }))
 
   it('should add a new users', () =>
     request(Server)
@@ -23,8 +23,8 @@ describe('Users', () => {
         expect(r.body)
           .to.be.an('object')
           .that.has.property('name')
-          .equal('test');
-      }));
+          .equal('test')
+      }))
 
   it('should get a user by id', () =>
     request(Server)
@@ -34,6 +34,6 @@ describe('Users', () => {
         expect(r.body)
           .to.be.an('object')
           .that.has.property('name')
-          .equal('test');
-      }));
-});
+          .equal('test')
+      }))
+})

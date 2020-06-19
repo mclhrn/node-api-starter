@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 type TInput = {
-  db: string;
+  db: string
 }
 
 export default ({ db }: TInput) => {
@@ -11,15 +11,15 @@ export default ({ db }: TInput) => {
       useUnifiedTopology: true
     })
       .then(() => {
-        return console.info(`Successfully connected to ${db}`);
+        return console.info(`Successfully connected to ${db}`)
       })
       .catch(error => {
-        console.error('Error connecting to database: ', error);
-        return process.exit(1);
-      });
-  };
+        console.error('Error connecting to database: ', error)
+        return process.exit(1)
+      })
+  }
 
-  connect();
+  connect()
 
-  mongoose.connection.on('disconnected', connect);
-};
+  mongoose.connection.on('disconnected', connect)
+}
