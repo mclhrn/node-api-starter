@@ -4,19 +4,18 @@
   "description": "Starter Template for nodejs API on Openshift",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "npm run build && node dist/index.js",
     "build": "ts-node build.ts && tsc",
     "dev": "nodemon src/index.ts",
     "dev:debug": "nodemon --exec 'node -r ts-node/register --inspect-brk' src/index.ts | pino-pretty",
     "test": "mocha test/**/*.ts --exit",
     "test:debug": "mocha --inspect-brk test/**/*.ts --exit",
     "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint --fix src/**/*.ts",
-    "sonar:start": "docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube",
-    "sonar:inspect": "node sonar-project.ts"
+    "lint:fix": "eslint --fix src/**/*.ts"
   },
   "dependencies": {
     "@apidevtools/swagger-express-middleware": "^4.0.0",
+    "@types/yamljs": "^0.2.31",
     "bluebird": "^3.5.5",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
@@ -28,7 +27,9 @@
     "pino": "^5.13.1",
     "pino-pretty": "^3.2.1",
     "prom-client": "^11.5.3",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "swagger-ui-express": "^4.1.4",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.27",
@@ -49,7 +50,6 @@
     "mocha": "^6.2.0",
     "nodemon": "^1.19.3",
     "shelljs": "^0.8.3",
-    "sonarqube-scanner": "^2.5.0",
     "supertest": "^4.0.2",
     "ts-lint": "^4.5.1",
     "ts-node": "^8.3.0",

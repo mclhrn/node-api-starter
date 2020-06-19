@@ -1,7 +1,7 @@
-import 'mocha';
-import { expect } from 'chai';
-import request from 'supertest';
-import Server from '../src';
+import { describe, it } from 'mocha'
+import { expect } from 'chai'
+import request from 'supertest'
+import Server from '../src'
 
 describe('Examples', () => {
   it('should get all examples', () =>
@@ -11,8 +11,8 @@ describe('Examples', () => {
       .then(r => {
         expect(r.body)
           .to.be.an('array')
-          .of.length(2);
-      }));
+          .of.length(2)
+      }))
 
   it('should add a new example', () =>
     request(Server)
@@ -23,8 +23,8 @@ describe('Examples', () => {
         expect(r.body)
           .to.be.an('object')
           .that.has.property('name')
-          .equal('test');
-      }));
+          .equal('test')
+      }))
 
   it('should get an example by id', () =>
     request(Server)
@@ -34,6 +34,6 @@ describe('Examples', () => {
         expect(r.body)
           .to.be.an('object')
           .that.has.property('name')
-          .equal('test');
-      }));
-});
+          .equal('test')
+      }))
+})
