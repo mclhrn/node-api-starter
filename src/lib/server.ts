@@ -15,9 +15,11 @@ export default class ExpressServer {
     app.use(bodyParser.json({ limit: process.env.REQUEST_LIMIT || '100kb' }))
     app.use(bodyParser.urlencoded({ extended: true, limit: process.env.REQUEST_LIMIT || '100kb' }))
     app.use(cookieParser(process.env.SESSION_SECRET))
+  }
 
-    const db = process.env.MONGO_CONN_STRING
+  connectDb(db: string): ExpressServer {
     connect({ db })
+    return this
   }
 
   router(routes: (app: express.Application) => void): ExpressServer {
