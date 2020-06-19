@@ -6,16 +6,13 @@ info:
 basePath: <%= apiRoot %>
 tags:
   - name: Users
-    description: Simple users endpoint
+    description: Sample users endpoint
   - name: Specification
     description: The swagger API specification
-
 consumes:
   - application/json
 produces:
   - application/json
-
-
 definitions:
   UserBody:
     type: object

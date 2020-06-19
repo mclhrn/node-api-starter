@@ -28,7 +28,8 @@
     "pino": "^5.13.1",
     "pino-pretty": "^3.2.1",
     "prom-client": "^11.5.3",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.27",

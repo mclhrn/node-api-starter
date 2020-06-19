@@ -4,17 +4,18 @@ info:
   description: My cool TypeScript app
   version: 1.0.0
 servers:
-- url: /api/v1
+  - url: http://localhost:9000/api/v1
+    description: Local Server
 tags:
-- name: Users
-  description: Simple users endpoints
-- name: Specification
-  description: The swagger API specification
+  - name: Users
+    description: Simple users endpoints
+  - name: Specification
+    description: The swagger API specification
 paths:
   /users:
     get:
       tags:
-      - Users
+        - Users
       description: Fetch all users
       responses:
         200:
@@ -22,7 +23,7 @@ paths:
           content: {}
     post:
       tags:
-      - Users
+        - Users
       description: Create a new user
       requestBody:
         description: a user
@@ -38,14 +39,14 @@ paths:
   /users/{id}:
     get:
       tags:
-      - User
+        - User
       parameters:
-      - name: id
-        in: path
-        description: The id of the user to retrieve
-        required: true
-        schema:
-          type: integer
+        - name: id
+          in: path
+          description: The id of the user to retrieve
+          required: true
+          schema:
+            type: integer
       responses:
         200:
           description: Return the user with the specified id
@@ -56,17 +57,17 @@ paths:
   /spec:
     get:
       tags:
-      - Specification
+        - Specification
       responses:
         200:
           description: Return the API specification
           content: {}
 components:
   schemas:
-    ExampleBody:
+    User:
       title: example
       required:
-      - name
+        - name
       type: object
       properties:
         name:
@@ -74,7 +75,7 @@ components:
     UserBody:
       title: user
       required:
-      - name
+        - name
       type: object
       properties:
         name:
