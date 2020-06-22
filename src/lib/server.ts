@@ -8,9 +8,12 @@ import setupSwagger from './openapi'
 import { l } from './logger'
 
 const app = express()
-
 export default class ExpressServer {
   constructor() {
+    console.log('********************* PINO LOGGER *********************')
+    console.log(l)
+    console.log('********************* PINO LOGGER *********************')
+
     app.use(require('express-pino-logger')({ logger: l }))
     app.use(bodyParser.json({ limit: process.env.REQUEST_LIMIT || '100kb' }))
     app.use(bodyParser.urlencoded({ extended: true, limit: process.env.REQUEST_LIMIT || '100kb' }))
