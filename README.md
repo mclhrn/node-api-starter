@@ -1,6 +1,6 @@
-# node-temp
+# Static Image Server
 
-Starter Template for nodejs API
+Simple nodejs application to serve images for the devfile registry. Uses hardcoded images in memory. Add database functionality as needed.
 
 ## Quick Start
 
@@ -66,9 +66,9 @@ npm run test:debug
 
 ## Try It
 * Open you're browser to [http://localhost:3000](http://localhost:3000)
-* Invoke the `/examples` endpoint 
+* Invoke the `/images` endpoint 
   ```shell
-  curl http://localhost:3000/api/v1/examples
+  curl http://localhost:8001/api/v1/images
   ```
 
 
@@ -90,13 +90,17 @@ npm run test:debug
 
 Add these [contents](https://github.com/cdimascio/generator-express-no-stress/blob/next/assets/.vscode/launch.json) to your `.vscode/launch.json` file
 
-## Code Quality
+## Deploy on Openshift
 
-### SonarQube
+```
+oc login <cluster addr>:<cluster port> --token=<abc…>
 
-Start a SonarQube Container and run code coverage
+// Create a new project or add to existing
+oc new-project devfile-registry
 
-```shell
-npm run sonar:start
-npm run sonar:inspect
+oc new-app <bitbucket url for this repo> --name service-image-server
+
+oc get svc service-image-server
+
+oc expose svc/service-image-server
 ```

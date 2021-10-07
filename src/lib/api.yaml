@@ -7,49 +7,37 @@ servers:
   - url: /api/v1
     description: Local Server
 tags:
-  - name: Users
-    description: Simple users endpoints
+  - name: Images
+    description: Simple images endpoints
   - name: Specification
     description: The swagger API specification
 paths:
-  /users:
+  /images:
     get:
       tags:
-        - Users
-      description: Fetch all users
+        - Images
+      description: Fetch all images
       responses:
         200:
           description: Returns all users
           content: {}
-    post:
-      tags:
-        - Users
-      description: Create a new user
-      requestBody:
-        description: a user
-        content: {}
-        required: true
-      responses:
-        200:
-          description: Creates a new user
-          content: {}
-  /users/{id}:
+  /images/{id}:
     get:
       tags:
-        - User
+        - Image
       parameters:
         - name: id
           in: path
-          description: The id of the user to retrieve
+          description: The id of the image to retrieve
           required: true
           schema:
             type: integer
       responses:
         200:
-          description: Return the user with the specified id
+          description: Return the image with the specified id
           content: {}
         404:
-          description: User not found
+          description: image not found
           content: {}
   /api-docs:
     get:
@@ -61,7 +49,7 @@ paths:
           content: {}
 components:
   schemas:
-    User:
+    Image:
       required:
         - name
       type: object

@@ -4,5 +4,4 @@ import routes from './routes'
 
 export default new Server()
   .router(routes)
-  .connectDb(process.env.MONGO_CONN_STRING)
-  .listen(process.env.PORT)
+  .listen(process.env.PORT || 8001)

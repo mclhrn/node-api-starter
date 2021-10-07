@@ -3,10 +3,10 @@ import { expect } from 'chai'
 import request from 'supertest'
 import Server from '../src'
 
-describe('Users', () => {
-  it('should get all Users', () =>
+describe('Images', () => {
+  it('should get all Images', () =>
     request(Server)
-      .get('/api/v1/users')
+      .get('/api/v1/images')
       .expect('Content-Type', /json/)
       .then(r => {
         expect(r.body)
@@ -14,21 +14,9 @@ describe('Users', () => {
           .of.length(2)
       }))
 
-  it('should add a new users', () =>
+  it('should get an image by id', () =>
     request(Server)
-      .post('/api/v1/users')
-      .send({ name: 'test' })
-      .expect('Content-Type', /json/)
-      .then(r => {
-        expect(r.body)
-          .to.be.an('object')
-          .that.has.property('name')
-          .equal('test')
-      }))
-
-  it('should get a user by id', () =>
-    request(Server)
-      .get('/api/v1/users/2')
+      .get('/api/v1/images/1')
       .expect('Content-Type', /json/)
       .then(r => {
         expect(r.body)
