@@ -1,13 +1,12 @@
 import Promise from 'bluebird'
 import { l } from '../lib/logger'
 
-// let id = 0
-
 interface Image {
   id: number,
   name: string
 }
 
+// TODO: Add these to database
 const images: Image[] = [
   { id: 0, name: 'images/nodejs.svg' },
   { id: 1, name: 'images/springboot.svg' },
@@ -22,7 +21,7 @@ export class ImageService {
 
   byId(id: number): Promise<Image> {
     l.info(`fetch Image with id ${id}`)
-    return this.all().then(r => r[id])
+    return Promise.resolve(images[id])
   }
 }
 

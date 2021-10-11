@@ -104,3 +104,7 @@ oc get svc service-image-server
 
 oc expose svc/service-image-server
 ```
+
+<!-- TODO -->
+// Add process envs to `.env` file
+// Add config map to openshift deploy stage
